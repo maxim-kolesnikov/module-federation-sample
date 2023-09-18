@@ -1,0 +1,18 @@
+{
+  "name": "module-federation",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "clean": "lerna run --parallel clean && lerna clean -y && rm -rf node_modules",
+    "build": "lerna run --parallel build",
+    "serve": "lerna run --parallel serve",
+    "start": "lerna run --parallel start"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
