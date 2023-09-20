@@ -8,11 +8,14 @@
   },
   "scripts": {
     "clean": "lerna run --parallel clean && lerna clean -y && rm -rf node_modules",
-    "build": "lerna run --parallel build",
+    "build": "rm -rf build && lerna run --parallel build",
     "serve": "lerna run --parallel serve",
     "start": "lerna run --parallel start"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
   }
 }
