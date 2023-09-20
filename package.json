@@ -1,7 +1,7 @@
 {
   "name": "module-federation-sample",
   "private": true,
-  "homepage": "https://maxim-kolesnikov.github.io/module-federation-sample",
+  "homepage": "http://maxim-kolesnikov.github.io/module-federation-sample",
   "workspaces": {
     "packages": [
       "packages/*"
