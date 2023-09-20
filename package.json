@@ -1,21 +1,22 @@
 {
-  "name": "module-federation",
+  "name": "module-federation-sample",
   "private": true,
+  "homepage": "https://maxim-kolesnikov.github.io/module-federation-sample",
   "workspaces": {
     "packages": [
       "packages/*"
     ]
   },
   "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "clean": "lerna run --parallel clean && lerna clean -y && rm -rf node_modules",
     "build": "rm -rf build && lerna run --parallel build",
     "serve": "lerna run --parallel serve",
     "start": "lerna run --parallel start"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
-  },
-  "dependencies": {
-    "serve": "^14.2.1"
+    "lerna": "^4.0.0",
+    "gh-pages": "^6.0.0"
   }
 }
