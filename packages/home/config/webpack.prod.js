@@ -8,7 +8,7 @@ module.exports = merge(webpackCommonConfig, {
     devtool: 'cheap-source-map',
     cache: true,
     output: {
-        publicPath: '/home/',
+        publicPath: `${process.env.PUBLIC_URL}/home/`,
         pathinfo: false,
         path: path.join(__dirname, '../../../build/home'),
     },

@@ -8,7 +8,7 @@ module.exports = merge(webpackCommonConfig, {
     devtool: 'cheap-source-map',
     cache: true,
     output: {
-        publicPath: '/',
+        publicPath: `${process.env.PUBLIC_URL}/`,
         pathinfo: false,
         path: path.join(__dirname, '../../../build'),
     },
@@ -16,7 +16,7 @@ module.exports = merge(webpackCommonConfig, {
         new ModuleFederationPlugin({
             name: 'app',
             remotes: {
-                home: `home@/home/remoteEntry.js`
+                home: `home@${process.env.PUBLIC_URL}/home/remoteEntry.js`
             },
             exposes: {
                 './App': './src/App',

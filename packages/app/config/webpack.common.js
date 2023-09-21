@@ -4,8 +4,6 @@ const path = require('path');
 
 require('dotenv').config({ path: path.resolve('.env') });
 
-console.log(process.env.REMOTE_HOME)
-
 module.exports = {
     entry: './src/index',
     module: {
