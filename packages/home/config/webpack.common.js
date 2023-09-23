@@ -1,6 +1,7 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
-const path = require('path');
+const deps = require('../package.json').dependencies;
 
 require('dotenv').config({ path: path.resolve('.env') });
 
@@ -19,6 +20,19 @@ module.exports = {
         ],
     },
     plugins: [
+        new ModuleFederationPlugin({
+            name: 'home',
+            library: { type: 'var', name: 'home' },
+            filename: 'remoteEntry.js',
+            exposes: {
+                './App': './src/App',
+            },
+            shared: {
+                ...deps,
+                react: { singleton: true },
+                'react-dom': { singleton: true }
+            },
+        }),
         new HtmlWebpackPlugin({
             template: './public/index.html',
         }),

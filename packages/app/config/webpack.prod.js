@@ -3,28 +3,15 @@ const { ModuleFederationPlugin } = require('webpack').container;
 const { merge } = require('webpack-merge');
 const webpackCommonConfig = require('./webpack.common');
 
+const { PUBLIC_URL = '', OUTPUT_PATH = path.join('./dist') } = process.env;
+
 module.exports = merge(webpackCommonConfig, {
     mode: 'production',
     devtool: 'cheap-source-map',
     cache: true,
     output: {
-        publicPath: `${process.env.PUBLIC_URL}/`,
+        publicPath: `${PUBLIC_URL}/`,
         pathinfo: false,
-        path: path.join(__dirname, '../../../build'),
-    },
-    plugins: [
-        new ModuleFederationPlugin({
-            name: 'app',
-            remotes: {
-                home: `home@${process.env.PUBLIC_URL}/home/remoteEntry.js`
-            },
-            exposes: {
-                './App': './src/App',
-            },
-            shared: {
-                react: { singleton: true },
-                'react-dom': { singleton: true }
-            },
-        }),
-    ],
+        path: path.resolve(OUTPUT_PATH),
+    }
 });

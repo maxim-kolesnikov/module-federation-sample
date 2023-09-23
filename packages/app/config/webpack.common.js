@@ -1,8 +1,10 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
-const path = require('path');
+const deps = require('../package.json').dependencies;
 
 require('dotenv').config({ path: path.resolve('.env') });
+const { NODE_ENV, REMOTE_HOME, PUBLIC_URL = '' } = process.env;
 
 module.exports = {
     entry: './src/index',
@@ -19,6 +21,20 @@ module.exports = {
         ],
     },
     plugins: [
+        new ModuleFederationPlugin({
+            name: 'app',
+            remotes: {
+                home: `home@${NODE_ENV === 'development' ? REMOTE_HOME : PUBLIC_URL + '/home'}/remoteEntry.js`
+            },
+            exposes: {
+                './App': './src/App',
+            },
+            shared: {
+                ...deps,
+                react: { singleton: true },
+                'react-dom': { singleton: true }
+            },
+        }),
         new HtmlWebpackPlugin({
             template: './public/index.html',
         }),
