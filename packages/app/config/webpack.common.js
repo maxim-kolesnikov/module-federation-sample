@@ -4,7 +4,7 @@ const { ModuleFederationPlugin } = require('webpack').container;
 const deps = require('../package.json').dependencies;
 
 require('dotenv').config({ path: path.resolve('.env') });
-const { NODE_ENV, REMOTE_HOME, REMOTE_PROFILE, PUBLIC_URL = '' } = process.env;
+const { NODE_ENV, REMOTE_HOME, REMOTE_PROFILE } = process.env;
 
 module.exports = {
     entry: './src/index',
