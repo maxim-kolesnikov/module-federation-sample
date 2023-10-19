@@ -17,19 +17,19 @@ const RootLayout = () => {
 
 const routes = [
     {
-        path: '/',
+        path: '',
         element: <RootLayout />,
         children: [
             {
                 index: true,
-                element: <Navigate to={`/`} />,
+                element: <Navigate to="" />,
             },
             {
-                path: `/home/*`,
+                path: `home/*`,
                 element: <Suspense fallback="Loading Home..."><HomeRemote /></Suspense>,
             },
             {
-                path: `/profile/*`,
+                path: `profile/*`,
                 element: <Suspense fallback="Loading Profile..."><ProfileRemote /></Suspense>,
             },
         ],
