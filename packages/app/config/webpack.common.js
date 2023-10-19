@@ -24,8 +24,8 @@ module.exports = {
         new ModuleFederationPlugin({
             name: 'app',
             remotes: {
-                home: `home@${NODE_ENV === 'development' ? REMOTE_HOME : PUBLIC_URL + 'home'}/remoteEntry.js`,
-                profile: `profile@${NODE_ENV === 'development' ? REMOTE_PROFILE : PUBLIC_URL + 'profile'}/remoteEntry.js`
+                home: `home@${NODE_ENV === 'development' ? REMOTE_HOME : 'home'}/remoteEntry.js`,
+                profile: `profile@${NODE_ENV === 'development' ? REMOTE_PROFILE : 'profile'}/remoteEntry.js`
             },
             exposes: {
                 './App': './src/App',
