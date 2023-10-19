@@ -15,7 +15,7 @@ const App = () => {
         }}>
             <h1>App</h1>
             <ErrorBoundary fallback={<div>Something went wrong</div>}>
-                <RouterProvider router={createBrowserRouter(routes)} />
+                <RouterProvider router={createBrowserRouter(routes, { basename: '/module-federation-sample' })} />
             </ErrorBoundary>
         </div>
     )
