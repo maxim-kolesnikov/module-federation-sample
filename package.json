@@ -10,7 +10,7 @@
   "scripts": {
     "predeploy": "cross-env PUBLIC_URL=/module-federation-sample/ yarn build",
     "deploy": "gh-pages -d build",
-    "deploy:gh-pages": "git --work-tree build add --all && git --work-tree build commit -m 'gh-pages' && git push origin HEAD:gh-pages --force && git reset --hard origin/master",
+    "deploy:gh-pages": "git --work-tree build add --all && git --work-tree build commit -m 'gh-pages' && git push origin HEAD:gh-pages --force && git reset --hard origin/main",
     "clean": "lerna run --parallel clean && lerna clean -y && rm -rf node_modules",
     "build": "rm -rf build && cross-env NODE_ENV=production BUILD_PATH=$(pwd)/build lerna run --parallel build",
     "serve": "lerna run --parallel serve",
