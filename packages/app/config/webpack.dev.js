@@ -9,7 +9,7 @@ module.exports = merge(webpackCommonConfig, {
         minimize: false,
     },
     output: {
-        publicPath: 'auto',
+        publicPath: '/'
     },
     devServer: {
         port: process.env.PORT,
