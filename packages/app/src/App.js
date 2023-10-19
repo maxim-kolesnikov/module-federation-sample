@@ -1,10 +1,12 @@
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import routes from "./routes/route";
 const App = () => {
 
-    console.log(routes)
+    const router = createHashRouter(routes);
+
+    console.log(routes, router)
 
     return (
         <div style={{
@@ -15,7 +17,7 @@ const App = () => {
         }}>
             <h1>App</h1>
             <ErrorBoundary fallback={<div>Something went wrong</div>}>
-                <RouterProvider router={createBrowserRouter(routes, { basename: '/module-federation-sample' })} />
+                <RouterProvider router={router} />
             </ErrorBoundary>
         </div>
     )

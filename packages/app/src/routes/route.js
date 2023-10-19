@@ -17,12 +17,13 @@ const RootLayout = () => {
 
 const routes = [
     {
-        path: '',
+        basename: '/#',
+        path: '/',
         element: <RootLayout />,
         children: [
             {
                 index: true,
-                element: <Navigate to="" />,
+                element: <Navigate to="/" />,
             },
             {
                 path: `/home`,
