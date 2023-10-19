@@ -8,7 +8,7 @@
     ]
   },
   "scripts": {
-    "predeploy": "cross-env PUBLIC_URL=/module-federation-sample yarn build",
+    "predeploy": "cross-env PUBLIC_URL=/module-federation-sample/ yarn build",
     "deploy": "gh-pages -d build",
     "deploy:gh-pages": "git --work-tree build add --all && git --work-tree build commit -m 'gh-pages' && git push origin HEAD:gh-pages --force && git checkout -f main",
     "clean": "lerna run --parallel clean && lerna clean -y && rm -rf node_modules",
