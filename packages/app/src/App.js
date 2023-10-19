@@ -1,7 +1,9 @@
-import React, { Suspense } from "react";
-import { Routes } from './Routes';
-
+import React from "react";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import routes from "./routes/route";
 const App = () => {
+
+    console.log(routes)
 
     return (
         <div style={{
@@ -11,7 +13,7 @@ const App = () => {
             backgroundColor:"red"
         }}>
             <h1>App</h1>
-            <Routes />
+            <RouterProvider router={createBrowserRouter(routes)} />
         </div>
     )
 }

@@ -4,7 +4,7 @@ const { ModuleFederationPlugin } = require('webpack').container;
 const deps = require('../package.json').dependencies;
 
 require('dotenv').config({ path: path.resolve('.env') });
-const { NODE_ENV, REMOTE_HOME, PUBLIC_URL = '' } = process.env;
+const { NODE_ENV, REMOTE_HOME, REMOTE_PROFILE, PUBLIC_URL = '' } = process.env;
 
 module.exports = {
     entry: './src/index',
@@ -24,7 +24,8 @@ module.exports = {
         new ModuleFederationPlugin({
             name: 'app',
             remotes: {
-                home: `home@${NODE_ENV === 'development' ? REMOTE_HOME : PUBLIC_URL + '/home'}/remoteEntry.js`
+                home: `home@${NODE_ENV === 'development' ? REMOTE_HOME : PUBLIC_URL + '/home'}/remoteEntry.js`,
+                profile: `profile@${NODE_ENV === 'development' ? REMOTE_PROFILE : PUBLIC_URL + '/profile'}/remoteEntry.js`
             },
             exposes: {
                 './App': './src/App',

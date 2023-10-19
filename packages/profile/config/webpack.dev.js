@@ -12,8 +12,7 @@ module.exports = merge(webpackCommonConfig, {
         publicPath: 'auto',
     },
     devServer: {
-        port: process.env.PORT,
-        historyApiFallback: true,
         static: path.join(__dirname, 'dist'),
+        port: process.env.PORT,
     }
 });
