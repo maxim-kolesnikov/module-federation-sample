@@ -9,10 +9,12 @@ module.exports = merge(webpackCommonConfig, {
         minimize: false,
     },
     output: {
-        publicPath: 'auto',
+        // publicPath: `http://localhost:${process.env.PORT}/`
+        publicPath: 'auto'
     },
     devServer: {
-        static: path.join(__dirname, 'dist'),
         port: process.env.PORT,
+        historyApiFallback: true
+        // static: path.join(__dirname, 'dist'),
     }
 });

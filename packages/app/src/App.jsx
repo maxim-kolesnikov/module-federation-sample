@@ -1,12 +1,12 @@
-import React from "react";
-import { ErrorBoundary } from "react-error-boundary";
-import { RouterProvider, createHashRouter } from 'react-router-dom';
-import routes from "./routes/route";
+import React from 'react';
+import { ErrorBoundary } from 'react-error-boundary'     ;
+import { RouterProvider, createHashRouter, createBrowserRouter } from 'react-router-dom';
+
+import { routes } from "./routing/route";
+
 const App = () => {
-
-    const router = createHashRouter(routes);
-
-    console.log(routes, router)
+    const createRouter = process.env.HASH_ROUTER ? createHashRouter : createBrowserRouter;
+    const router = createRouter(routes);
 
     return (
         <div style={{

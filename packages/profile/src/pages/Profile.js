@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const Profile = () => {
+    console.log('Profile')
     return (
         <div>
             <h1> Profile Page</h1>

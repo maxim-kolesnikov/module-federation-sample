@@ -12,8 +12,8 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
-                loader: 'babel-loader',
+                test: /\.(ts|tsx|js|jsx)$/,
+                loader: "babel-loader",
                 exclude: /node_modules/,
                 options: {
                     presets: ['@babel/preset-react'],
@@ -32,7 +32,11 @@ module.exports = {
             shared: {
                 ...deps,
                 react: { singleton: true },
-                'react-dom': { singleton: true }
+                'react-dom': { singleton: true },
+                'react-router-dom': {
+                    singleton: true,
+                    requiredVersion: deps['react-router-dom'],
+                },
             },
         }),
         new HtmlWebpackPlugin({

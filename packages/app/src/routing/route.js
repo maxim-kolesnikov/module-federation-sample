@@ -4,7 +4,7 @@ import { Link, Outlet, Navigate } from 'react-router-dom';
 const HomeRemote = React.lazy(() => import('home/App'));
 const ProfileRemote = React.lazy(() => import('profile/App'));
 
-const RootLayout = () => {
+export const RootLayout = () => {
     return (
         <div>
             <Link to={{ pathname: '/' }} style={{ marginRight: "1rem" }}>App</Link>
@@ -15,9 +15,9 @@ const RootLayout = () => {
     );
 }
 
-const routes = [
+export const routes = [
     {
-        basename: '/#',
+        // basename: '/#',
         path: '/',
         element: <RootLayout />,
         children: [
@@ -30,11 +30,9 @@ const routes = [
                 element: <Suspense fallback="Loading Home..."><HomeRemote /></Suspense>,
             },
             {
-                path: `/profile`,
+                path: `/profile/*`,
                 element: <Suspense fallback="Loading Profile..."><ProfileRemote /></Suspense>,
             },
         ],
     },
 ];
-
-export default routes;
